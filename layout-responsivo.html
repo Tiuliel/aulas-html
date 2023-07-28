@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Responsivo</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+
+        body {
+            font-family: Verdana, sans-serif;
+            background-color: beige;
+        }
+
+        #container {
+            box-shadow: black 0 0 10px;
+            padding: 1%;
+        }
+
+        header {
+            background-color: dodgerblue;
+            text-align: center;
+
+        }
+
+        /* CSS reset:
+Removemos o espaçamento padrão (do navegador) de algumas tags do site */
+        h1,
+        h2,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: yellow;
+        }
+
+        .colunaA {
+            background-color: darkseagreen;
+        }
+
+        .colunaB {
+            background-color: orange;
+        }
+
+        .colunaC {
+            background-color: pink;
+        }
+
+        footer {
+            background-color: gray;
+        }
+
+        h2,
+        p {
+            padding: 0.5rem;
+        }
+
+        /* pegar todos os artigos 
+utilizamos min-height para garantir que todos tenham pelo menos a altura especificada (no caso 300px). Se necessário, cada um aumentará automaticamente*/
+
+        /* opção 1: seletor agrupado com as classes */
+        .colunaA,
+        .colunaB,
+        .colunaC {
+            min-height: 300px;
+        }
+
+        /* opção 2: seletor tag article */
+        /* article {} */
+
+
+        /* media queries */
+        /* Regras para tela a partir de 700px de largura */
+        @media screen and (min-width:700px) {
+            header {
+                background-color: aqua;
+                display: flex;
+                justify-content: space-between;
+                height: 80px;
+                align-items: center
+            }
+
+            nav {
+                height: 40px;
+
+                /* usamos % para garantir que a referência de tamanho é o header */
+                width: 50%;
+
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            main {
+                display: flex;
+
+                /* A propriedade flex-wrap habilita a "quebra" do flex,
+                ou seja, os itens ficarão lado a lado enquanto houver espaço. Quando não houver, o próximo item irá para baixo*/
+                flex-wrap: wrap;
+            }
+
+            .colunaA {
+                width: 60%;
+            }
+
+            .colunaB {
+                width: 40%;
+            }
+
+            .colunaC {
+                width: 100%;
+            }
+
+        }
+
+        /* FIM DA MEDIA QUERY DE 700PX*/
+
+        @media screen and (min-width: 900px){
+            .colunaA, .colunaB, .colunaC {width: 33.33%}
+            #container {
+                max-width: 1100px;
+                margin: auto;
+            }
+/* Aumentando o tamanho de todos os textos */
+html { font-size: 20px;}
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Aqui estamos usando container para agrupar todas as tags do layout do site -->
+    <div id="container">
+
+        <!-- cabeçalho -->
+        <header>
+
+            <h1>Mobile First</h1>
+
+            <!-- Menu do site -->
+            <nav>
+                <a href="">link</a>
+                <a href="">link</a>
+                <a href="">link</a>
+            </nav>
+        </header>
+
+        <!-- Área de todo conteúdo -->
+        <main>
+            <article class="colunaA">
+                <h2>Coluna A</h2>
+                <p>lorem</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur nemo voluptatum ratione
+                    voluptatem, veniam facilis ipsa natus atque necessitatibus deleniti!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt voluptas suscipit eius error
+                    corporis cumque similique, nam adipisci magnam nisi!</p>
+            </article>
+
+            <article class="colunaB">
+                <h2>Coluna B</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur, totam. Reprehenderit ipsum
+                    rerum beatae optio repellat accusantium vel voluptates ipsam.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis obcaecati ullam numquam officia et
+                    ratione dicta error veniam voluptatum tempora?</p>
+            </article>
+
+            <article class="colunaC">
+                <h2>Coluna C</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est hic maxime vero modi accusamus. Modi,
+                    culpa! Ipsum quos tempore explicabo!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum temporibus, est commodi
+                    similique iure consequatur tempora modi libero.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti voluptatem aliquam iusto
+                    consequatur architecto temporibus sint ex magni, cum nulla?</p>
+            </article>
+        </main>
+
+        <!-- Rodapé -->
+        <footer>
+            <h2>Design Responsivo</h2>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
